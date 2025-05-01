@@ -37,7 +37,7 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        userTypeComboBox.getItems().addAll("Administrador", "Veterinário", "Rececionista");
+        userTypeComboBox.getItems().addAll("Administrador", "Veterinário", "Recepcionista");
 
         try {
             logoImageView.setImage(new Image(getClass().getResourceAsStream("/images/logo.png")));
@@ -47,7 +47,7 @@ public class LoginController {
     }
 
     public void setTipoUtilizadorPredefinido(String tipo) {
-        userTypeComboBox.getItems().setAll("Administrador", "Veterinário", "Recepcionista");
+        userTypeComboBox.getItems().setAll("Administrador", "Veterinário", "Rececionista");
         userTypeComboBox.setValue(tipo);
         userTypeComboBox.setDisable(true);
     }
