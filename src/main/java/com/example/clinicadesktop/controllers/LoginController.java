@@ -17,6 +17,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class LoginController {
 
+    // 🔒 Armazena o utilizador autenticado para uso global
+    public static Utilizador utilizadorAutenticado;
+
     @FXML
     private TextField usernameField;
 
@@ -67,6 +70,9 @@ public class LoginController {
 
         if (utilizador != null) {
             try {
+                // 🔐 Guardar o utilizador autenticado
+                utilizadorAutenticado = utilizador;
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/menuPrincipal.fxml"));
                 loader.setControllerFactory(context::getBean);
                 Parent root = loader.load();

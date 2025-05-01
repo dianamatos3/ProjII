@@ -1,58 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<!--
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.clinicadesktop.controllers.ListarConsultasController"
-            prefWidth="800" prefHeight="600">
 
-<<<<<<< HEAD
-    <top>
-        <Label text="Lista de Consultas" style="-fx-font-size: 24px; -fx-font-weight: bold;" BorderPane.alignment="CENTER"/>
-    </top>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.clinicadesktop.controllers.ListarConsultasController"
+      alignment="CENTER" spacing="20" style="-fx-padding: 40;"
+      prefWidth="800" prefHeight="600">
 
-    <center>
-        <TableView fx:id="tableViewConsultas" layoutX="50" layoutY="70" prefWidth="500" prefHeight="250">
-            <columns>
-                <TableColumn fx:id="colData" text="Data" prefWidth="150"/>
-                <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="200"/>
-                <TableColumn fx:id="colVeterinario" text="Veterinário" prefWidth="150"/>
-                <TableColumn fx:id="colAnimal" text="Animal" prefWidth="150"/>
-            </columns>
-        </TableView>
-    </center>
+    <Label text="Lista de Consultas" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
 
-    <bottom>
-        <Button text="Voltar ao Menu" onAction="#voltarMenuPrincipal"
-                style="-fx-font-size: 16px; -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 8px;"
-                BorderPane.alignment="CENTER" prefWidth="150" />
-    </bottom>
+    <TableView fx:id="tableViewConsultas" prefWidth="700" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colData" text="Data" prefWidth="150"/>
+            <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="200"/>
+            <TableColumn fx:id="colVeterinario" text="Veterinário" prefWidth="150"/>
+            <TableColumn fx:id="colAnimal" text="Animal" prefWidth="200"/>
+        </columns>
+    </TableView>
 
-</BorderPane>
--->
-
-<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.clinicadesktop.controllers.ListarConsultasController"
-            prefWidth="600" prefHeight="400">
-    <children>
-
-        <Label text="Lista de Consultas" layoutX="220" layoutY="20" style="-fx-font-size: 20px;"/>
-
-        <TableView fx:id="tableViewConsultas" layoutX="50" layoutY="70" prefWidth="500" prefHeight="250">
-            <columns>
-                <TableColumn fx:id="colData" text="Data" prefWidth="150"/>
-                <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="200"/>
-                <TableColumn fx:id="colVeterinario" text="Veterinário" prefWidth="150"/>
-                <TableColumn fx:id="colAnimal" text="Animal" prefWidth="150"/>
-            </columns>
-        </TableView>
-
-        <!--<Button text="Voltar" layoutX="260" layoutY="340" prefWidth="80" onAction="#voltarMenu"/>-->
-
-        <Button text="Voltar ao Menu" layoutX="260" layoutY="340" prefWidth="180" onAction="#voltarMenuPrincipal"/>
-
-
-    </children>
-</AnchorPane>
-
+    <Button text="Voltar ao Menu" onAction="#voltarMenuPrincipal" prefWidth="180"/>
+</VBox>

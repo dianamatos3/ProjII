@@ -2,6 +2,7 @@ package com.example.clinicadesktop.controllers;
 
 import com.example.clinicadesktop.models.Animal;
 import com.example.clinicadesktop.models.Consulta;
+import com.example.clinicadesktop.models.Utilizador;
 import com.example.clinicadesktop.services.AnimalService;
 import com.example.clinicadesktop.services.ConsultaService;
 import javafx.collections.FXCollections;
@@ -12,8 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -56,15 +57,10 @@ public class RegistarConsultaController {
         ObservableList<Animal> animaisObservable = FXCollections.observableArrayList(animais);
         animalComboBox.setItems(animaisObservable);
 
-        // Mostrar só o nome do animal na ComboBox
-        animalComboBox.setConverter(new javafx.util.StringConverter<Animal>() {
+        animalComboBox.setConverter(new javafx.util.StringConverter<>() {
             @Override
             public String toString(Animal animal) {
-                if (animal != null) {
-                    return animal.getNome();
-                } else {
-                    return "";
-                }
+                return (animal != null) ? animal.getNome() : "";
             }
 
             @Override
@@ -93,15 +89,30 @@ public class RegistarConsultaController {
             consulta.setVeterinarioResponsavel(veterinario);
             consulta.setAnimal(animalSelecionado);
 
+            // Associar o utilizador autenticado
+            Utilizador utilizadorAtual = LoginController.utilizadorAutenticado;
+            if (utilizadorAtual == null) {
+                mostrarAlerta("Erro", "Utilizador autenticado não encontrado.");
+                return;
+            }
+            consulta.setUtilizador(utilizadorAtual);
+
             consultaService.save(consulta);
 
             mostrarAlerta("Sucesso", "Consulta marcada com sucesso!");
             limparCampos();
 
         } catch (Exception e) {
-            mostrarAlerta("Erro", "Erro ao marcar consulta.");
+            mostrarAlerta("Erro ao Marcar Consulta", "Ocorreu um erro ao tentar marcar a consulta.\n" + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private void limparCampos() {
+        dataPicker.setValue(null);
+        motivoField.clear();
+        veterinarioField.clear();
+        animalComboBox.getSelectionModel().clearSelection();
     }
 
     private void mostrarAlerta(String titulo, String mensagem) {
@@ -110,14 +121,6 @@ public class RegistarConsultaController {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
-    }
-
-
-    private void limparCampos() {
-        dataPicker.setValue(null);
-        motivoField.clear();
-        veterinarioField.clear();
-        animalComboBox.getSelectionModel().clearSelection();
     }
 
     @FXML
