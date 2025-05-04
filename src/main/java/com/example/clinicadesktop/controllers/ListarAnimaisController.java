@@ -68,6 +68,8 @@ public class ListarAnimaisController {
 
 
         carregarAnimais();
+
+        tabelaAnimais.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void carregarAnimais() {

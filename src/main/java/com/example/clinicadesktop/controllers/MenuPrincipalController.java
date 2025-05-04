@@ -35,6 +35,8 @@ public class MenuPrincipalController {
     @FXML private Button btnListarAnimais;
     @FXML private Button btnMarcarConsulta;
     @FXML private Button btnListarConsultas;
+    @FXML private Button btnRegistarPagamento;
+    @FXML private Button btnListarPagamentos;
 
     @Autowired
     private ApplicationContext springContext;
@@ -67,9 +69,11 @@ public class MenuPrincipalController {
         switch (tipoUtilizador) {
             case "Veterinário" -> {
                 btnRegistarCliente.setVisible(false);
-                btnListarClientes.setVisible(false);
+                //btnListarClientes.setVisible(false);
                 btnRegistarAnimal.setVisible(false);
-                btnListarAnimais.setVisible(false);
+                //btnListarAnimais.setVisible(false);
+                btnRegistarPagamento.setVisible(false);
+                btnListarPagamentos.setVisible(false);
             }
             case "Recepcionista" -> {
                 btnListarConsultas.setVisible(false);
@@ -99,12 +103,39 @@ public class MenuPrincipalController {
     }
 
     // Ações dos botões
-    @FXML private void abrirRegistarCliente() { carregarConteudo("/views/registarCliente.fxml"); }
-    @FXML private void abrirListarClientes() { carregarConteudo("/views/listarClientes.fxml"); }
-    @FXML private void abrirRegistarAnimal() { carregarConteudo("/views/registarAnimal.fxml"); }
-    @FXML private void abrirListarAnimais() { carregarConteudo("/views/listarAnimais.fxml"); }
-    @FXML private void abrirMarcarConsulta() { carregarConteudo("/views/registarConsulta.fxml"); }
-    @FXML private void abrirListarConsultas() { carregarConteudo("/views/listarConsultas.fxml"); }
+    @FXML
+    private void abrirRegistarCliente() {
+        carregarConteudo("/views/registarCliente.fxml");
+    }
+    @FXML
+    private void abrirListarClientes() {
+        carregarConteudo("/views/listarClientes.fxml");
+    }
+    @FXML
+    private void abrirRegistarAnimal() {
+        carregarConteudo("/views/registarAnimal.fxml");
+    }
+    @FXML
+    private void abrirListarAnimais() {
+        carregarConteudo("/views/listarAnimais.fxml");
+    }
+    @FXML
+    private void abrirMarcarConsulta() {
+        carregarConteudo("/views/registarConsulta.fxml");
+    }
+    @FXML
+    private void abrirListarConsultas() {
+        carregarConteudo("/views/listarConsultas.fxml");
+    }
+    @FXML
+    private void abrirRegistarPagamento() {
+        carregarConteudo("/views/registarPagamento.fxml");
+    }
+    @FXML
+    private void abrirListarPagamentos() {
+        carregarConteudo("/views/listarPagamentos.fxml");
+    }
+
 
     @FXML
     private void terminarSessao() {

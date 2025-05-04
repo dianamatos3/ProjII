@@ -31,7 +31,7 @@ public class Consulta {
     private String veterinarioResponsavel;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_animal", nullable = false)
     private Animal animal;
 
@@ -147,4 +147,11 @@ public class Consulta {
     public void setProdutos(Set<Produto> produtos) {
         this.produtos = produtos;
     }
+
+
+    @Override
+    public String toString() {
+        return "Consulta de " + animal.getNome() + " em " + data;
+    }
+
 }

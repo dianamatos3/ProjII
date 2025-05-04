@@ -41,6 +41,9 @@ public class ListarConsultasController {
                 new javafx.beans.property.SimpleStringProperty(cellData.getValue().getAnimal().getNome()));
 
         tableViewConsultas.setItems(FXCollections.observableArrayList(consultaService.findAll()));
+
+        tableViewConsultas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
     }
 
     @FXML

@@ -31,6 +31,10 @@
             <Button fx:id="btnListarAnimais" text="Listar Animais" onAction="#abrirListarAnimais" styleClass="side-button"/>
             <Button fx:id="btnMarcarConsulta" text="Marcar Consulta" onAction="#abrirMarcarConsulta" styleClass="side-button"/>
             <Button fx:id="btnListarConsultas" text="Listar Consultas" onAction="#abrirListarConsultas" styleClass="side-button"/>
+            <Button fx:id="btnRegistarPagamento" text="Registar Pagamento" onAction="#abrirRegistarPagamento" styleClass="side-button"/>
+            <Button fx:id="btnListarPagamento" text="Listar Pagamentos" onAction="#abrirListarPagamentos" styleClass="side-button"/>
+
+
 
             <Pane VBox.vgrow="ALWAYS"/> <!-- Empurra o botão para o fundo -->
 

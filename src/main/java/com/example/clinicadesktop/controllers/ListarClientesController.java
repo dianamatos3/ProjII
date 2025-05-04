@@ -54,6 +54,9 @@ public class ListarClientesController {
         moradaColumn.setCellValueFactory(new PropertyValueFactory<>("morada"));
 
         carregarClientes();
+
+        tabelaClientes.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
     }
 
     private void carregarClientes() {

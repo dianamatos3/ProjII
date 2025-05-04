@@ -59,4 +59,9 @@ public class Tipopagamento {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return descricao;
+    }
+
 }

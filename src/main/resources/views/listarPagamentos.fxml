@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.clinicadesktop.controllers.ListarPagamentosController"
+      alignment="CENTER" spacing="20" style="-fx-padding: 40;"
+      prefWidth="800" prefHeight="600">
+
+    <Label text="Lista de Pagamentos" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableViewPagamentos" prefWidth="700" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colData" text="Data" prefWidth="120"/>
+            <TableColumn fx:id="colValor" text="Valor Pago (€)" prefWidth="120"/>
+            <TableColumn fx:id="colValorTotal" text="Valor Total (€)" prefWidth="120"/>
+            <TableColumn fx:id="colTipoPagamento" text="Tipo de Pagamento" prefWidth="160"/>
+            <TableColumn fx:id="colConsulta" text="Consulta (ID)" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Button text="Voltar ao Menu" onAction="#voltarMenuPrincipal" prefWidth="180"/>
+</VBox>
